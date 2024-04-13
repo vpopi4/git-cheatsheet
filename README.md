@@ -120,3 +120,57 @@ $ git push
 Хэш состоит из цифр 0—9 и латинских букв A—F и обладает следующими важными свойствами:
 - для одного и того же набора данных хэш всегда одинаковый;
 - при изменении исходных данных хеш тоже изменится (причём сильно).
+
+### `git log`
+
+Печатает список коммитов с их описанием:
+- Хэш коммита.
+- Author — имя автора и его электронная почта.
+- Date — дата и время создания коммита.
+- Сообщение к коммиту.
+
+```bash
+$ git log
+```
+
+Пример вывода:
+
+```bash
+commit e4b95659b8a2189c046b935b53faa15e339116ab (HEAD -> main)
+Author: vpopi4 <vpopi4@yandex.ru>
+Date:   Sat Apr 13 04:57:20 2024 +0300
+
+    feat: add hash information
+
+commit 95388f344f97b40cce400512691688ca5a540f81
+Author: vpopi4 <vpopi4@yandex.ru>
+Date:   Sat Apr 13 04:54:56 2024 +0300
+
+    refactor: add separating lines between command description
+
+commit e8b9b1ba833efa2a54d74afa0ba031b3a3a0fc51 (origin/main)
+Author: Cyrill <vpopi4@ya.ru>
+Date:   Wed Jan 24 23:26:46 2024 +0300
+
+    added to README.md file a cheat sheet on using git
+
+```
+
+___
+
+Печатает в одну строку сокращенный лог:
+- Сокращенный хэш - несколько первых символов хэша, alias хэша, длину определяет git
+- Первая строка комментария.
+
+```bash
+$ git log --oneline
+```
+
+Пример: 
+
+```bash
+e4b9565 (HEAD -> main) feat: add hash information
+95388f3 refactor: add separating lines between command description
+e8b9b1b (origin/main) added to README.md file a cheat sheet on using git
+
+```
