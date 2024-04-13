@@ -174,3 +174,7 @@ e4b9565 (HEAD -> main) feat: add hash information
 e8b9b1b (origin/main) added to README.md file a cheat sheet on using git
 
 ```
+
+## Head
+
+Head - это служебный файл папки `.git`. Он указывает на коммит, который сделан последним (то есть на самый новый). Его можно испрльзовать как alias последнего коммита.
