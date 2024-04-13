@@ -175,6 +175,45 @@ e8b9b1b (origin/main) added to README.md file a cheat sheet on using git
 
 ```
 
-## Head
+### Head
 
 Head - это служебный файл папки `.git`. Он указывает на коммит, который сделан последним (то есть на самый новый). Его можно испрльзовать как alias последнего коммита.
+
+## Статусы файлов, `git status`
+
+Rаждый файл помечается git каким-либо статусом:
+- Untracked: git не следит за изменениями в этом файле (до команды `git add`).
+- Staged (indexed, cached): файл находится в списке файлов, которые войдут в коммит (staging area, index, cache) (после команды `git add`).
+- Modified: файл отличается от последеней сохраненной версии (в staged area или зафиксированной в коммите).
+- Tracked: противоположность untracked. Файл или зафиксирован в коммите, или только проиндексирован, или еще и изменен.
+
+Для Staged и Modified файлов не указывают дополнительно состояние Tracked, это подразумевается.
+Если после команды `git add` файл был изменен, проиндексирована будет только старая версия файла, а новая версия будет являться Modified.
+
+Комманда `git status` показывает файлы cо статусом:
+- staged (Changes to be committed в выводе git status);
+- modified (Changes not staged for commit);
+- untracked (Untracked files).
+
+Зафиксированные в коммите файлы не указываются.
+
+```bash
+$ git status 
+```
+
+Пример, где файл уже был закоммичен, проиндексирована новая версия, а после был снова изменен:
+
+```bash
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   README.md
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+```
